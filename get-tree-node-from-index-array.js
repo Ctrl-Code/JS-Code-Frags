@@ -1,27 +1,9 @@
-let obj = [
-    {
-        "North India":[
-            {'Haryana': ['Sonipat','Panipat']},
-            'Punjab',
-        ]
-    },
-    {
-        "South India":[
-            'Tamil Nadu',
-            {
-                'Karnataka':[{'Kormangla': ['North',{'South':['1st Main','2nd Main']}]}, 'BTM']
-            },
-        ]
-    },
-    'East India',
-    {
-        'West India': [
-            {
-                'GJ': [{"Gandhinagar":['area-1','area-2']}]   
-            }
-        ]
-    }
-];
+/**
+ *  eg getTreeNodeFromIndexArray(object,"[0,0,1]")
+ *  sample object kept in 'object.js' file
+ * */ 
+
+let object = require('./object');
 
 function getTreeNodeFromIndexArray(treeObject,stringifiedArray){
     let parsedArray = JSON.parse(stringifiedArray);
@@ -47,4 +29,4 @@ function getTreeNodeFromIndexArray(treeObject,stringifiedArray){
     return node;
 }
 
-console.log(getTreeNodeFromIndexArray(obj,'[0,0,0]'));
+module.exports = getTreeNodeFromIndexArray;
