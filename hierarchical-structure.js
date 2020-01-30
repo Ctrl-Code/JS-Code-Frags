@@ -27,7 +27,7 @@ function getTabedString(str,tab){
     return returnStr;
 }
 
-function traverse(obj,tabs,incrementTab=1){
+function heirarchicalStructure(obj,tabs=-1,incrementTab=1){
     if(incrementTab)
         ++tabs;
 
@@ -45,7 +45,7 @@ function traverse(obj,tabs,incrementTab=1){
                     case 'true':{
                         
                         // array
-                        traverse(item,tabs,incrementTab = 0);
+                        heirarchicalStructure(item,tabs,incrementTab = 0);
 
                     }; break;
 
@@ -55,7 +55,7 @@ function traverse(obj,tabs,incrementTab=1){
                         let key = Object.keys(item);
                         let values = Object.values(item);
                         console.log(getTabedString(key,tabs))
-                        traverse(values,tabs);
+                        heirarchicalStructure(values,tabs);
 
                     }; break;
                     default: ;
@@ -66,4 +66,4 @@ function traverse(obj,tabs,incrementTab=1){
     })
 }
 
-traverse(ourObject,-1);
+module.exports = heirarchicalStructure;
